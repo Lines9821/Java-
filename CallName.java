@@ -29,7 +29,7 @@ public class CallName {
 	姓名存储到数组中,三个方法,使用一个数组中的数据, 方法传递参数
 */
 
-
+/*
 import java.util.Random;
 public class CallName{
     public static void main(String[] args){
@@ -43,33 +43,19 @@ public class CallName{
         String name = randomStudentName(names);
         System.out.println(name);
     }
-    /*
-      定义方法,随机数,做索引,数组中找到学生姓名
-      返回值?  学生姓名
-      参数?  数组
-    */
+
     public static String randomStudentName(String[] names){
         Random ran = new Random();
         int index = ran.nextInt(names.length);
         return names[index];
     }
 
-    /*
-       定义方法,遍历数组
-       返回值? 没有
-       参数? 数组
-    */
     public static void printStudentName(String[] names){
         for(int i = 0 ; i < names.length ;i++){
             System.out.println(names[i]);
         }
     }
 
-    /*
-       定义方法,实现向数组中添加学生姓名
-       返回值? 没有,
-       参数?  参数就是数组
-    */
     public static void addStudent(String[] names){
         names[0] = "张三";
         names[1] = "李四";
@@ -79,5 +65,57 @@ public class CallName{
         names[5] = "小名";
         names[6] = "老王";
         names[7] = "小华";
+    }
+}
+*/
+
+
+import java.util.ArrayList;
+import java.util.Random;
+
+class StudentName{
+    String name;
+    int age;
+}
+public class CallName{
+    public static void main(String[] args) {
+        ArrayList<StudentName> array = new ArrayList<StudentName>();
+        add(array);
+        printArrayList(array);
+        randomStudentName(array);
+    }
+    public static void randomStudentName(ArrayList<StudentName> array){
+        Random ran = new Random();
+        int num = ran.nextInt(array.size());
+        StudentName s = array.get(num);
+        System.out.println(s.name+"   "+s.age);
+    }
+     public static void printArrayList(ArrayList<StudentName> array) {
+         for (int i = 0; i < array.size(); i++) {
+             StudentName s = array.get(i);
+             System.out.println(s.name+"   "+s.age);
+         }
+     }
+    public static void add(ArrayList<StudentName> array){
+        StudentName sn1 = new StudentName();
+        StudentName sn2 = new StudentName();
+        StudentName sn3 = new StudentName();
+        StudentName sn4 = new StudentName();
+        StudentName sn5 = new StudentName();
+        sn1.name = "张三";
+        sn1.age = 20;
+        sn2.name = "李四";
+        sn2.age = 15;
+        sn3.name = "王五";
+        sn3.age = 25;
+        sn4.name = "赵六";
+        sn4.age = 10;
+        sn5.name = "孙七";
+        sn5.age = 30;
+        array.add(sn1);
+        array.add(sn2);
+        array.add(sn3);
+        array.add(sn4);
+        array.add(sn5);
     }
 }
